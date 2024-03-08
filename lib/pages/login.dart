@@ -36,7 +36,7 @@ class LoginPage extends StatelessWidget {
             const SizedBox(height: 20,),
         
             //login button
-            Button(),
+            Button(text: 'Button',),
 
         
             //register now
