@@ -49,8 +49,8 @@ class LoginPage extends StatelessWidget {
             //register now
             Row(
               children: [
-                Text('Not a member?'),
-                Text('Register now'),
+                Text('Not a member? ', style: TextStyle(color: Colors.grey[700]),),
+                Text('Register now', style: TextStyle(fontWeight: FontWeight.bold),),
               ],
             )
           ],
