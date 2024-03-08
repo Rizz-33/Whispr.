@@ -16,7 +16,7 @@ class LoginPage extends StatelessWidget {
             Image.asset('lib/images/logo.png', width: 300,),
         
             //welcome back message
-            Text('Welcome back, Thrilled to have you here again.', style: TextStyle(fontSize: 16, color: Colors.grey[600]),),
+            Text('Welcome back, Thrilled to have you here again.', style: TextStyle(fontSize: 16, color: Colors.grey[700]),),
 
             const SizedBox(height: 16,),
         
