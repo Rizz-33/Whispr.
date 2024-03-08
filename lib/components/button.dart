@@ -18,7 +18,7 @@ class Button extends StatelessWidget {
         padding: EdgeInsets.all(16),
         margin: EdgeInsets.symmetric(horizontal: 25),
         child: Center(
-          child: Text(text),
+          child: Text(text, style: TextStyle(color: Colors.white),),
         ),
       ),
     );
