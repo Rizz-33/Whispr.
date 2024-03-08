@@ -21,7 +21,7 @@ class LoginPage extends StatelessWidget {
             const SizedBox(height: 16,),
         
             //email
-            CustomTextField(),
+            CustomTextField(hintText: 'Email',),
         
             //password
         

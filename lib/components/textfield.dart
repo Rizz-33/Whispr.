@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({Key? key}) : super(key: key);
+  final String hintText;
+
+  const CustomTextField({Key? key, required this.hintText}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +17,7 @@ class CustomTextField extends StatelessWidget {
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Theme.of(context).colorScheme.primary),
           ),
+          hintText: '',
         ),
       ),
     );
