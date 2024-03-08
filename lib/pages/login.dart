@@ -22,7 +22,7 @@ class LoginPage extends StatelessWidget {
             //welcome back message
             Text('Welcome back, Thrilled to have you here again.', style: TextStyle(fontSize: 16, color: Colors.grey[700]),),
 
-            const SizedBox(height: 16,),
+            const SizedBox(height: 20,),
         
             //email
             CustomTextField(hintText: 'Email', obscureText: false, controller: _emailController,),
@@ -31,6 +31,8 @@ class LoginPage extends StatelessWidget {
         
             //password
             CustomTextField(hintText: 'Password', obscureText: true, controller: _passwordController,),
+
+            const SizedBox(height: 20,),
         
             //login button
         
