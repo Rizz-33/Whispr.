@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whispr/components/button.dart';
 import 'package:whispr/components/textfield.dart';
 
 class LoginPage extends StatelessWidget {
@@ -7,6 +8,11 @@ class LoginPage extends StatelessWidget {
   final TextEditingController _passwordController = TextEditingController();
 
   LoginPage({super.key});
+
+  //login method
+  void login(){
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,8 +41,19 @@ class LoginPage extends StatelessWidget {
             const SizedBox(height: 20,),
         
             //login button
+            Button(text: 'Login', onTap: () {  },),
+
+            const SizedBox(height: 20,),
+
         
             //register now
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('Not a member? ', style: TextStyle(color: Colors.grey[700]),),
+                Text('Register now', style: TextStyle(fontWeight: FontWeight.bold),),
+              ],
+            )
           ],
         ),
       ),
