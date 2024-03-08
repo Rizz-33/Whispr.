@@ -9,7 +9,10 @@ class CustomTextField extends StatelessWidget {
       decoration: InputDecoration(
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(color: Theme.of(context).colorScheme.tertiary),
-        )
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Theme.of(context).colorScheme.primary),
+        ),
       ),
     );
   }
