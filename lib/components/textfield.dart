@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
-class TextField extends StatelessWidget {
-  const TextField({super.key});
+class CustomTextField extends StatelessWidget {
+  const CustomTextField({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return TextField(
+      decoration: InputDecoration(),
+    );
   }
 }
