@@ -47,6 +47,7 @@ class LoginPage extends StatelessWidget {
 
         
             //register now
+            Text('Not a member? Register now')
           ],
         ),
       ),
