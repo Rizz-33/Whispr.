@@ -12,9 +12,10 @@ class LoginPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             //logo
-            Icon(Icons.message),
+            Image.asset('lib/images/logo.png', width: 300,),
         
             //welcome back message
+            Text('Welcome back, Thrilled to have you here again.')
         
             //email
         
