@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whispr/components/button.dart';
 import 'package:whispr/components/textfield.dart';
 
 class LoginPage extends StatelessWidget {
@@ -35,6 +36,8 @@ class LoginPage extends StatelessWidget {
             const SizedBox(height: 20,),
         
             //login button
+            Button(),
+
         
             //register now
           ],
