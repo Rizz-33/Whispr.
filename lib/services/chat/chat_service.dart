@@ -48,6 +48,11 @@ class ChatService {
 
 
     //add new message to database
+    await _firestore
+      .collection("chat_rooms")
+      .doc(chatRoomID)
+      .collection("message")
+      .add(newMessage.toMap());
 
   }
 
