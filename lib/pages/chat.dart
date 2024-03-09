@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:whispr/components/textfield.dart';
 import 'package:whispr/services/auth/auth_service.dart';
 import 'package:whispr/services/chat/chat_service.dart';
 
@@ -85,6 +86,13 @@ class ChatPage extends StatelessWidget {
     return Row(
       children: [
         //textfield
+        Expanded(
+          child: CustomTextField(
+            hintText: "Type a message",
+            obscureText: false,
+            controller: _messageController
+          ),
+        ),
 
         //send button
 
