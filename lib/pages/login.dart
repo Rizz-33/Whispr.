@@ -21,11 +21,14 @@ class LoginPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const SizedBox(height: 110,),
               //logo
               Image.asset(
                 'lib/images/logo.png',
                 width: 300,
               ),
+
+              const SizedBox(height: 60,),
 
               //welcome back message
               Text(
