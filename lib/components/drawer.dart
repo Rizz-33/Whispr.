@@ -10,6 +10,11 @@ class CustomDrawer extends StatelessWidget {
       child: Column(
         children: [
           //logo
+          DrawerHeader(child:
+            Image.asset(
+              'lib/images/logo.png',
+              width: 180,
+            ))
 
           //home list title
 
