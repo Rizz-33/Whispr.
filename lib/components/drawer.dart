@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:whispr/auth/auth_service.dart';
 import 'package:whispr/pages/settings.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
+
+  void logout(){
+    //get auth service
+    final _auth = AuthService();
+    _auth.signOut();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +67,7 @@ class CustomDrawer extends StatelessWidget {
             child: ListTile(
               title: Text("L O G O U T", style: TextStyle(color: Colors.grey[700]),),
               leading: Icon(Icons.logout, color: Colors.grey[600],),
-              onTap: (){},
+              onTap: logout,
             ),
           )
         ],
