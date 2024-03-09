@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:whispr/auth/auth_gate.dart';
 import 'package:whispr/firebase_options.dart';
+import 'package:whispr/services/auth/auth_gate.dart';
 import 'package:whispr/themes/light.dart';
 
 void main() async {
