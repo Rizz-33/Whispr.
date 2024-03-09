@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "576873708867",
+    "project_id": "whispr-c0782",
+    "storage_bucket": "whispr-c0782.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:576873708867:android:96d4237edccdd50d3283f6",
+        "android_client_info": {
+          "package_name": "com.example.whispr"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCV_r0fwYWpWKRq43ggUYY_mQRpwH5GmIY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
