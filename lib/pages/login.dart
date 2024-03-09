@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whispr/auth/auth_service.dart';
 import 'package:whispr/components/button.dart';
 import 'package:whispr/components/textfield.dart';
 
@@ -13,7 +14,25 @@ class LoginPage extends StatelessWidget {
   LoginPage({super.key, required this.onTap});
 
   //login method
-  void login() {}
+  void login(BuildContext context) async {
+    //auth service
+    final authService = AuthService();
+
+    //try log in
+    try {
+      await authService.signInWithEmailPassword(_emailController.text, _passwordController.text,);
+    }
+
+    //catch any errors
+    catch (e) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text(e.toString()),
+        ));
+    }
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +81,7 @@ class LoginPage extends StatelessWidget {
               //login button
               Button(
                 text: 'Login',
-                onTap: login,
+                onTap: () => login(context),
               ),
 
               const SizedBox(height: 20,),
