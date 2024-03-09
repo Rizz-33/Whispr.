@@ -38,10 +38,29 @@ class ChatPage extends StatelessWidget {
       body: Column(
         children: [
           //display all messages
+          Expanded(
+            child: _buildMessageList(),
+          ),
 
           //user input
         ],
       ),
     );
+  }
+
+  //build message list
+  Widget _buildMessageList() {
+    String senderID = _authService.getCurrentUser()!.uid;
+    return StreamBuilder(
+      stream: _chatService.getMessage(receiverID, senderID),
+      builder: (context, snapshot) {
+        //errors
+
+
+        //loading
+
+
+        //list view
+      });
   }
 }
