@@ -60,7 +60,9 @@ class ChatPage extends StatelessWidget {
         }
 
         //loading
-
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Text("Loading...");
+        }
 
         //list view
       });
