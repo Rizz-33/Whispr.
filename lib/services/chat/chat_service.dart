@@ -27,6 +27,7 @@ class ChatService {
     //get current user info
     final String currentUserID = _auth.currentUser!.uid;
     final String currentUserEmail = _auth.currentUser!.email!;
+    final Timestamp timestamp = Timestamp.now();
 
     
     //create a new message
