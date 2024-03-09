@@ -55,7 +55,9 @@ class ChatPage extends StatelessWidget {
       stream: _chatService.getMessage(receiverID, senderID),
       builder: (context, snapshot) {
         //errors
-
+        if (snapshot.hasError) {
+          return const Text('Error');
+        }
 
         //loading
 
