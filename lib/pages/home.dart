@@ -33,6 +33,9 @@ class HomePage extends StatelessWidget {
 
 
         //loading
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Text("Loading...");
+        }
 
 
         //return list view
