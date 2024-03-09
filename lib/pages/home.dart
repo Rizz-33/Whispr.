@@ -27,12 +27,16 @@ class HomePage extends StatelessWidget {
       stream: _chatService.getUserStream(),
       builder: (context, snapshot){
         //error
+        if (snapshot.hasError) {
+          return const Text('Error');
+        }
 
 
         //loading
 
 
         //return list view
+        
       },
     );
   }
