@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:whispr/pages/register.dart';
+import 'package:whispr/pages/login.dart';
 import 'package:whispr/themes/light.dart';
 
 void main() {
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: RegisterPage(),
+      home: LoginPage(),
       theme: lightMode,
     );
   }
