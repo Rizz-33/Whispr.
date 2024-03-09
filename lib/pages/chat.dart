@@ -22,6 +22,9 @@ class ChatPage extends StatelessWidget {
       //send the message
       await _chatService.sendMessage(receiverID, _messageController.text);
 
+      //clear text controller
+      _messageController.clear();
+
     }
 
   }
