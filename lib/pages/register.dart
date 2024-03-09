@@ -6,6 +6,7 @@ class RegisterPage extends StatelessWidget {
   //email and password controllers
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _passwordConfirmController = TextEditingController();
 
 
   RegisterPage({super.key});
@@ -30,7 +31,7 @@ class RegisterPage extends StatelessWidget {
 
               //welcome back message
               Text(
-                'Welcome back, Thrilled to have you here again.',
+                "Let's create an account for you",
                 style: TextStyle(fontSize: 16, color: Colors.grey[700]),
               ),
 
@@ -50,6 +51,15 @@ class RegisterPage extends StatelessWidget {
                 hintText: 'Password',
                 obscureText: true,
                 controller: _passwordController,
+              ),
+
+              const SizedBox(height: 16,),
+
+              //confirm password
+              CustomTextField(
+                hintText: 'Confirm Password',
+                obscureText: true,
+                controller: _passwordConfirmController,
               ),
 
               const SizedBox(height: 20,),
