@@ -95,7 +95,7 @@ class ChatPage extends StatelessWidget {
         ),
 
         //send button
-
+        IconButton(onPressed: sendMessage, icon: Icon(Icons.arrow_upward),),
       ],
     );
   }
