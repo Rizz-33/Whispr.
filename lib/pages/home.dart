@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:whispr/components/drawer.dart';
 import 'package:whispr/components/userTile.dart';
+import 'package:whispr/pages/chat.dart';
 import 'package:whispr/services/auth/auth_service.dart';
 import 'package:whispr/services/chat/chat_service.dart';
 
@@ -53,13 +54,13 @@ class HomePage extends StatelessWidget {
   Widget _buildUserListItem(Map<String, dynamic> userData, BuildContext context) {
     //display users except the current user
     return UserTile(
-      text: userData["email"],
+      text: userData['email'],
       onTap: () {
         //tapped on a user -> go to chat
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => ChatPage(),
+            builder: (context) => ChatPage(receiverEmail: userData['email'],),
           )
         );
       },
