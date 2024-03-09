@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:whispr/services/auth/auth_service.dart';
 import 'package:whispr/services/chat/chat_service.dart';
@@ -22,6 +23,9 @@ class ChatPage extends StatelessWidget {
       //send the message
       await _chatService.sendMessage(receiverID, _messageController.text);
 
+      //clear text controller
+      _messageController.clear();
+
     }
 
   }
@@ -32,6 +36,47 @@ class ChatPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(receiverEmail),
       ),
+      body: Column(
+        children: [
+          //display all messages
+          Expanded(
+            child: _buildMessageList(),
+          ),
+
+          //user input
+        ],
+      ),
     );
+  }
+
+  //build message list
+  Widget _buildMessageList() {
+    String senderID = _authService.getCurrentUser()!.uid;
+    return StreamBuilder(
+      stream: _chatService.getMessage(receiverID, senderID),
+      builder: (context, snapshot) {
+        //errors
+        if (snapshot.hasError) {
+          return const Text('Error');
+        }
+
+        //loading
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Text("Loading...");
+        }
+
+        //list view
+        return ListView(
+          children: snapshot.data!.docs.map((doc) => _buildMessageItem(doc)).toList(),
+        );
+      });
+  }
+
+  //build message item
+  Widget _buildMessageItem(DocumentSnapshot doc) {
+    Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
+
+
+    return Text(data["message"]);
   }
 }
