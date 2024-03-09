@@ -42,7 +42,7 @@ class HomePage extends StatelessWidget {
 
         //return list view
         return ListView(
-          children: snapshot.data!.map<Widget>((userData) => _buildUserListItem).toList(),
+          children: snapshot.data!.map<Widget>((userData) => _buildUserListItem(userData, context)).toList(),
         );
         
       },
