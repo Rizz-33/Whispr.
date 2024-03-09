@@ -25,7 +25,10 @@ class CustomDrawer extends StatelessWidget {
                 child: ListTile(
                   title: Text("H O M E", style: TextStyle(color: Colors.grey[700]),),
                   leading: Icon(Icons.home, color: Colors.grey[600],),
-                  onTap: (){},
+                  onTap: (){
+                    //pop drawer
+                    Navigator.pop(context);
+                  },
                 ),
               ),
               
