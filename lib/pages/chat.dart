@@ -35,6 +35,13 @@ class ChatPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(receiverEmail),
       ),
+      body: Column(
+        children: [
+          //display all messages
+
+          //user input
+        ],
+      ),
     );
   }
 }
