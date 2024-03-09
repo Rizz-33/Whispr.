@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:whispr/components/button.dart';
 import 'package:whispr/components/textfield.dart';
 
-class Register extends StatelessWidget {
+class RegisterPage extends StatelessWidget {
   //email and password controllers
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
 
-  Register({super.key});
+  RegisterPage({super.key});
 
   //register method
   void register(){}
