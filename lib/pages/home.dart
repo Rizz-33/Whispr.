@@ -46,4 +46,11 @@ class HomePage extends StatelessWidget {
       },
     );
   }
+
+
+  //build individual list tile for user
+  Widget _buildUserListItem(Map<String, dynamic> userData, BuildContext context) {
+    //display users except the current user
+    return UserTile();
+  }
 }
