@@ -32,7 +32,7 @@ class ChatService {
 
     
     //create a new message
-    Message(
+    Message newMessage = Message(
       senderID: currentUserID,
       senderEmail: currentUserEmail,
       receiverID: reveicerID,
