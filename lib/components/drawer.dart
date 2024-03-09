@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whispr/pages/settings.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -38,7 +39,16 @@ class CustomDrawer extends StatelessWidget {
                 child: ListTile(
                   title: Text("S E T T I N G S", style: TextStyle(color: Colors.grey[700]),),
                   leading: Icon(Icons.settings, color: Colors.grey[600],),
-                  onTap: (){},
+                  onTap: (){
+                    //pop drawer
+                    Navigator.pop(context);
+
+                    //navigate to settings page
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SettingsPage(),)
+                    );
+                  },
                 ),
               ),
             ],
