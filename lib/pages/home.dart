@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:whispr/components/drawer.dart';
+import 'package:whispr/services/auth/auth_service.dart';
+import 'package:whispr/services/chat/chat_service.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
+
+  //chat and auth services
+  final ChatService _chatService = ChatService();
+  final AuthService _authService = AuthService();
 
   @override
   Widget build(BuildContext context) {
@@ -11,6 +17,10 @@ class HomePage extends StatelessWidget {
         title: Text('Home'),
       ),
       drawer: CustomDrawer(),
+      body: _buildUserList(),
     );
   }
+
+  //build a list of users except for the current logged in user
+  
 }
