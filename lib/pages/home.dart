@@ -12,6 +12,7 @@ class HomePage extends StatelessWidget {
   final ChatService _chatService = ChatService();
   final AuthService _authService = AuthService();
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,17 +54,21 @@ class HomePage extends StatelessWidget {
   //build individual list tile for user
   Widget _buildUserListItem(Map<String, dynamic> userData, BuildContext context) {
     //display users except the current user
-    return UserTile(
-      text: userData['email'],
-      onTap: () {
-        //tapped on a user -> go to chat
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => ChatPage(receiverEmail: userData['email'],),
-          )
-        );
-      },
-    );
+    if (userData['email'] != _authService.getCurrentUser()) {
+  return UserTile(
+    text: userData['email'],
+    onTap: () {
+      //tapped on a user -> go to chat
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ChatPage(receiverEmail: userData['email'],),
+        )
+      );
+    },
+  );
+} else {
+  return Container();
+}
   }
 }
