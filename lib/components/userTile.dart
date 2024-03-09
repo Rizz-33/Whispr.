@@ -17,9 +17,10 @@ class UserTile extends StatelessWidget {
         child: Row(
           children: [
             //icon
-
+            Icon(Icons.person),
 
             //username
+            Text(text),
           ],
         ),
       ),
