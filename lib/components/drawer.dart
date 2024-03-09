@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:whispr/auth/auth_service.dart';
 import 'package:whispr/pages/settings.dart';
+import 'package:whispr/services/auth/auth_service.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
