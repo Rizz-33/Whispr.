@@ -10,6 +10,9 @@ class Register extends StatelessWidget {
 
   Register({super.key});
 
+  //register method
+  void register(){}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,8 +56,8 @@ class Register extends StatelessWidget {
 
               //login button
               Button(
-                text: 'Login',
-                onTap: () {},
+                text: 'Register',
+                onTap: register,
               ),
 
               const SizedBox(height: 20,),
