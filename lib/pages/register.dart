@@ -20,6 +20,7 @@ class RegisterPage extends StatelessWidget {
     //get auth service
     final _auth = AuthService();
 
+    //only if the passwords are matching create user
     if (_passwordController.text == _passwordConfirmController.text) {
       try {
         _auth.signInWithEmailAndPassword(
@@ -32,6 +33,15 @@ class RegisterPage extends StatelessWidget {
           title: Text(e.toString()),
         ));
       }
+    }
+
+    //show error if passwords are mismatch
+    else {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text("Passwords don't match!"),
+        ));
     }
   }
 
