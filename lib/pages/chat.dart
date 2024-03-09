@@ -20,7 +20,7 @@ class ChatPage extends StatelessWidget {
     //if there is something inside the textfield
     if (_messageController.text.isNotEmpty) {
       //send the message
-      await _chatService.sendMessage(reveicerID, message)
+      await _chatService.sendMessage(receiverID, _messageController.text);
 
     }
 
