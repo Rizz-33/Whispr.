@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:whispr/components/textfield.dart';
 import 'package:whispr/services/auth/auth_service.dart';
 import 'package:whispr/services/chat/chat_service.dart';
 
@@ -44,6 +45,7 @@ class ChatPage extends StatelessWidget {
           ),
 
           //user input
+          _buildUserInput(),
         ],
       ),
     );
@@ -78,5 +80,24 @@ class ChatPage extends StatelessWidget {
 
 
     return Text(data["message"]);
+  }
+
+  //build input
+  Widget _buildUserInput() {
+    return Row(
+      children: [
+        //textfield
+        Expanded(
+          child: CustomTextField(
+            hintText: "Type a message",
+            obscureText: false,
+            controller: _messageController
+          ),
+        ),
+
+        //send button
+        IconButton(onPressed: sendMessage, icon: Icon(Icons.arrow_upward),),
+      ],
+    );
   }
 }
