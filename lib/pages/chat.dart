@@ -79,4 +79,16 @@ class ChatPage extends StatelessWidget {
 
     return Text(data["message"]);
   }
+
+  //build input
+  Widget _buildUserInput() {
+    return Row(
+      children: [
+        //textfield
+
+        //send button
+
+      ],
+    );
+  }
 }
