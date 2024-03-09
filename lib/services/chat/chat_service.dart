@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:whispr/models/message.dart';
 
 class ChatService {
 
@@ -31,7 +32,13 @@ class ChatService {
 
     
     //create a new message
-    
+    Message(
+      senderID: currentUserID,
+      senderEmail: currentUserEmail,
+      receiverID: reveicerID,
+      message: message,
+      timestamp: timestamp
+    );
 
 
     //construct chat room ID for the two users
