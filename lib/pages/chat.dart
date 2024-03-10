@@ -22,8 +22,16 @@ class _ChatPageState extends State<ChatPage> {
 
   //chat and auth service
   final ChatService _chatService = ChatService();
-
   final AuthService _authService = AuthService();
+
+  //for textfield focus
+  FocusNode focusNode = FocusNode();
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
 
   //send message
   void sendMessage() async {
