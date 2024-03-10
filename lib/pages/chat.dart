@@ -79,10 +79,10 @@ class ChatPage extends StatelessWidget {
     Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
 
     //is current user
-    bool isCuurentUser = data['senderID'] == _authService.getCurrentUser()!.uid;
+    bool isCurentUser = data['senderID'] == _authService.getCurrentUser()!.uid;
 
     // align message to the right id the sender is the current user, otherwise left
-
+    var alignment = isCurentUser ? Alignment.centerRight : Alignment.centerLeft;
 
 
     return Text(data["message"]);
