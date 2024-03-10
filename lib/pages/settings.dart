@@ -13,6 +13,14 @@ class SettingsPage extends StatelessWidget {
         foregroundColor: Colors.grey,
         elevation: 0,
       ),
+      body: Row(
+        children: [
+          //dark mode
+          Text("Dark Mode"),
+
+          //switch
+        ],
+      ),
     );
   }
 }
