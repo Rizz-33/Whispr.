@@ -54,8 +54,14 @@ class _ChatPageState extends State<ChatPage> {
 
   //scroll controller
   final ScrollController _scrollController = ScrollController();
+  void scrollDown() {
+    _scrollController.animateTo(
+      _scrollController.position.maxScrollExtent,
+      duration: Duration(seconds: 1),
+      curve: Curves.fastOutSlowIn,
+    );
+  }
 
-  
   //send message
   void sendMessage() async {
     //if there is something inside the textfield
