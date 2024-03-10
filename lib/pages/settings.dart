@@ -15,6 +15,7 @@ class SettingsPage extends StatelessWidget {
         elevation: 0,
       ),
       body: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           //dark mode
           Text("Dark Mode"),
