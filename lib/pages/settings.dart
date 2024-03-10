@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -12,6 +13,18 @@ class SettingsPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         foregroundColor: Colors.grey,
         elevation: 0,
+      ),
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          //dark mode
+          Text("Dark Mode"),
+
+          //switch
+          CupertinoSwitch(value: true, onChanged: (value){
+
+          })
+        ],
       ),
     );
   }
