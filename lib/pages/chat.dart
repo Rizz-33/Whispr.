@@ -43,6 +43,12 @@ class _ChatPageState extends State<ChatPage> {
         Future.delayed(Duration(milliseconds: 500), () => scrollDown(),);
       }
     });
+
+    //wait a bit for listview to be built, then scroll to bottom
+    Future.delayed(
+      Duration(milliseconds: 500),
+      () => scrollDown(),
+    );
   }
 
   @override
@@ -73,6 +79,8 @@ class _ChatPageState extends State<ChatPage> {
       _messageController.clear();
 
     }
+
+    scrollDown();
 
   }
 
