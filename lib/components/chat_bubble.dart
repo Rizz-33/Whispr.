@@ -20,7 +20,13 @@ class ChatBubble extends StatelessWidget {
       ),
       padding: EdgeInsets.all(16),
       margin: EdgeInsets.symmetric(vertical: 5, horizontal: 25),
-      child: Text(message, style: TextStyle(color: isDarkMode ? Colors.white : Colors.black),),
+      child: Text(
+        message,
+        style: TextStyle(
+          color: isCurentUser
+            ? Colors.white
+            : (isDarkMode ? Colors.white : Colors.black)),
+      ),
     );
   }
 }
