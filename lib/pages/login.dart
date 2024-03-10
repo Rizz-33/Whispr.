@@ -43,7 +43,7 @@ class LoginPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const SizedBox(height: 130,),
+              const SizedBox(height: 120,),
               //logo
               Image.asset(
                 'lib/images/logo.png',
