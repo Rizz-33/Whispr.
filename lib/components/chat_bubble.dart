@@ -10,9 +10,12 @@ class ChatBubble extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: isCurentUser ? Color.fromARGB(255, 188, 206, 255) : Colors.grey[500],
+        color: isCurentUser ? Color.fromARGB(180, 0, 47, 167) : Colors.grey[600],
+        borderRadius: BorderRadius.circular(16)
       ),
-      child: Text(message),
+      padding: EdgeInsets.all(16),
+      margin: EdgeInsets.symmetric(vertical: 5, horizontal: 25),
+      child: Text(message, style: TextStyle(color: Colors.white),),
     );
   }
 }
