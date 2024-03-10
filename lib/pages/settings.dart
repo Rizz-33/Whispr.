@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:whispr/themes/thteme_provider.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -17,7 +19,7 @@ class SettingsPage extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.secondary,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(12),
         ),
         margin: EdgeInsets.all(25),
         padding: EdgeInsets.all(16),
@@ -28,7 +30,9 @@ class SettingsPage extends StatelessWidget {
             Text("Dark Mode"),
         
             //switch
-            CupertinoSwitch(value: true, onChanged: (value){
+            CupertinoSwitch(
+              value: Provider.of<ThemeProvider>(context, listen: false).isDarkMode,
+              onChanged: (value){
         
             })
           ],
