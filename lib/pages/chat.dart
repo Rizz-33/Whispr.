@@ -4,6 +4,7 @@ import 'package:whispr/components/textfield.dart';
 import 'package:whispr/services/auth/auth_service.dart';
 import 'package:whispr/services/chat/chat_service.dart';
 
+
 class ChatPage extends StatelessWidget {
   final String receiverEmail;
   final String receiverID;
@@ -78,26 +79,46 @@ class ChatPage extends StatelessWidget {
   Widget _buildMessageItem(DocumentSnapshot doc) {
     Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
 
+    //is current user
+    bool isCurentUser = data['senderID'] == _authService.getCurrentUser()!.uid;
 
-    return Text(data["message"]);
+    // align message to the right id the sender is the current user, otherwise left
+    var alignment = isCurentUser ? Alignment.centerRight : Alignment.centerLeft;
+
+
+    return Container(child: Column(
+      crossAxisAlignment: isCurentUser ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+      children: [
+        Text(data["message"]),
+      ],
+    ));
   }
 
   //build input
   Widget _buildUserInput() {
-    return Row(
-      children: [
-        //textfield
-        Expanded(
-          child: CustomTextField(
-            hintText: "Type a message",
-            obscureText: false,
-            controller: _messageController
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 30.0),
+      child: Row(
+        children: [
+          //textfield
+          Expanded(
+            child: CustomTextField(
+              hintText: "Type a message",
+              obscureText: false,
+              controller: _messageController
+            ),
           ),
-        ),
-
-        //send button
-        IconButton(onPressed: sendMessage, icon: Icon(Icons.arrow_upward),),
-      ],
+      
+          //send button
+          Container(
+            decoration: BoxDecoration(
+              color: Color.fromARGB(255, 0, 47, 167),
+              shape: BoxShape.circle,
+            ),
+            margin: EdgeInsets.only(right: 16),
+            child: IconButton(onPressed: sendMessage, icon: Icon(Icons.arrow_upward, color: Colors.white,),)),
+        ],
+      ),
     );
   }
 }
