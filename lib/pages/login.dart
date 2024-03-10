@@ -43,7 +43,7 @@ class LoginPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const SizedBox(height: 130,),
+              const SizedBox(height: 120,),
               //logo
               Image.asset(
                 'lib/images/logo.png',
@@ -76,7 +76,7 @@ class LoginPage extends StatelessWidget {
                 controller: _passwordController,
               ),
 
-              const SizedBox(height: 20,),
+              const SizedBox(height: 40,),
 
               //login button
               Button(
@@ -97,7 +97,7 @@ class LoginPage extends StatelessWidget {
                   GestureDetector(
                     onTap: onTap,
                     child: Text(
-                      'Register now',
+                      '  Register now',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ),
