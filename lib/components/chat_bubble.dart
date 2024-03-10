@@ -14,8 +14,8 @@ class ChatBubble extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: isCurentUser
-        ? (isDarkMode ? Color.fromARGB(180, 0, 47, 167) : Color.fromARGB(255, 87, 134, 255))
-        : (isDarkMode ? Colors.grey[600] : Colors.grey[800]),
+        ? (isDarkMode ? Color.fromARGB(100, 87, 134, 255) : Color.fromARGB(100, 0, 47, 167))
+        : (isDarkMode ? Colors.grey[900]: Colors.grey[300] ),
         borderRadius: BorderRadius.circular(16)
       ),
       padding: EdgeInsets.all(16),
