@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:whispr/themes/thteme_provider.dart';
 
 class ChatBubble extends StatelessWidget {
   final String message;
@@ -8,6 +10,7 @@ class ChatBubble extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isDarkMode = Provider.of<ThemeProvider>(context, listen: false).isDarkMode;
     return Container(
       decoration: BoxDecoration(
         color: isCurentUser ? Color.fromARGB(180, 0, 47, 167) : Colors.grey[600],
