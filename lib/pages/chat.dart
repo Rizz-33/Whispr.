@@ -25,29 +25,29 @@ class _ChatPageState extends State<ChatPage> {
   final AuthService _authService = AuthService();
 
   //for textfield focus
-  FocusNode focusNode = FocusNode();
+  FocusNode MyfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
 
     //add listener to focus node
-    focusNode.addListener(() {
-      if (focusNode.hasFocus) {
+    MyfocusNode.addListener(() {
+      if (MyfocusNode.hasFocus) {
         //cause a delay so that the keuboard has time to show up
 
         //amount of remaining space will be calculated
 
         //scroll down
 
-        Future.delayed(Duration(microseconds: 500), () => scrollDown(),);
+        Future.delayed(Duration(milliseconds: 500), () => scrollDown(),);
       }
     });
   }
 
   @override
   void dispose() {
-    focusNode.dispose();
+    MyfocusNode.dispose();
     _messageController.dispose();
     super.dispose();
   }
@@ -155,7 +155,7 @@ class _ChatPageState extends State<ChatPage> {
               hintText: "Type a message",
               obscureText: false,
               controller: _messageController,
-              focusNode: focusNode,
+              focusNode: MyfocusNode,
             ),
           ),
       
