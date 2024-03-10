@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -19,6 +20,9 @@ class SettingsPage extends StatelessWidget {
           Text("Dark Mode"),
 
           //switch
+          CupertinoSwitch(value: true, onChanged: (value){
+
+          })
         ],
       ),
     );
