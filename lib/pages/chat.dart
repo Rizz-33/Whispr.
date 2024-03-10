@@ -52,7 +52,10 @@ class _ChatPageState extends State<ChatPage> {
     super.dispose();
   }
 
+  //scroll controller
+  final ScrollController _scrollController = ScrollController();
 
+  
   //send message
   void sendMessage() async {
     //if there is something inside the textfield
