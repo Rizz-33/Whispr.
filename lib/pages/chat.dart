@@ -85,7 +85,12 @@ class ChatPage extends StatelessWidget {
     var alignment = isCurentUser ? Alignment.centerRight : Alignment.centerLeft;
 
 
-    return Text(data["message"]);
+    return Container(child: Column(
+      crossAxisAlignment: isCurentUser ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+      children: [
+        Text(data["message"]),
+      ],
+    ));
   }
 
   //build input
