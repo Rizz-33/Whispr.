@@ -45,6 +45,13 @@ class _ChatPageState extends State<ChatPage> {
     });
   }
 
+  @override
+  void dispose() {
+    focusNode.dispose();
+    _messageController.dispose();
+    super.dispose();
+  }
+
 
   //send message
   void sendMessage() async {
