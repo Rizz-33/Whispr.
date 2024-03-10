@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:whispr/firebase_options.dart';
 import 'package:whispr/services/auth/auth_gate.dart';
-import 'package:whispr/themes/light.dart';
 import 'package:whispr/themes/thteme_provider.dart';
 
 void main() async {
@@ -25,7 +24,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: AuthGate(),
-      theme: lightMode,
+      theme: Provider.of<ThemeProvider>(context).themeData,
     );
   }
 }
