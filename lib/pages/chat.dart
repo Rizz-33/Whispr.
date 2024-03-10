@@ -154,7 +154,8 @@ class _ChatPageState extends State<ChatPage> {
             child: CustomTextField(
               hintText: "Type a message",
               obscureText: false,
-              controller: _messageController
+              controller: _messageController,
+              focusNode: focusNode,
             ),
           ),
       
