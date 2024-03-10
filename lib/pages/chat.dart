@@ -80,6 +80,8 @@ class _ChatPageState extends State<ChatPage> {
 
     }
 
+    scrollDown();
+
   }
 
   @override
