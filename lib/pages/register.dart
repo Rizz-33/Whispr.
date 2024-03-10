@@ -96,7 +96,7 @@ class RegisterPage extends StatelessWidget {
                 controller: _passwordConfirmController,
               ),
 
-              const SizedBox(height: 20,),
+              const SizedBox(height: 40,),
 
               //login button
               Button(
@@ -117,7 +117,7 @@ class RegisterPage extends StatelessWidget {
                   GestureDetector(
                     onTap: onTap,
                     child: Text(
-                      'Login now',
+                      '  Login now',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ),
