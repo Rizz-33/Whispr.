@@ -30,6 +30,19 @@ class _ChatPageState extends State<ChatPage> {
   @override
   void initState() {
     super.initState();
+
+    //add listener to focus node
+    focusNode.addListener(() {
+      if (focusNode.hasFocus) {
+        //cause a delay so that the keuboard has time to show up
+
+        //amount of remaining space will be calculated
+
+        //scroll down
+
+        Future.delayed(Duration(microseconds: 500), () => scrollDown(),);
+      }
+    });
   }
 
 
