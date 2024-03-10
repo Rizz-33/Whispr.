@@ -6,12 +6,17 @@ import 'package:whispr/services/auth/auth_service.dart';
 import 'package:whispr/services/chat/chat_service.dart';
 
 
-class ChatPage extends StatelessWidget {
+class ChatPage extends StatefulWidget {
   final String receiverEmail;
   final String receiverID;
 
   ChatPage({super.key, required this.receiverEmail, required this.receiverID});
 
+  @override
+  State<ChatPage> createState() => _ChatPageState();
+}
+
+class _ChatPageState extends State<ChatPage> {
   //text controller
   final TextEditingController _messageController = TextEditingController();
 
@@ -19,12 +24,50 @@ class ChatPage extends StatelessWidget {
   final ChatService _chatService = ChatService();
   final AuthService _authService = AuthService();
 
+  //for textfield focus
+  FocusNode focusNode = FocusNode();
+
+  @override
+  void initState() {
+    super.initState();
+
+    //add listener to focus node
+    focusNode.addListener(() {
+      if (focusNode.hasFocus) {
+        //cause a delay so that the keuboard has time to show up
+
+        //amount of remaining space will be calculated
+
+        //scroll down
+
+        Future.delayed(Duration(microseconds: 500), () => scrollDown(),);
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    focusNode.dispose();
+    _messageController.dispose();
+    super.dispose();
+  }
+
+  //scroll controller
+  final ScrollController _scrollController = ScrollController();
+  void scrollDown() {
+    _scrollController.animateTo(
+      _scrollController.position.maxScrollExtent,
+      duration: Duration(seconds: 1),
+      curve: Curves.fastOutSlowIn,
+    );
+  }
+
   //send message
   void sendMessage() async {
     //if there is something inside the textfield
     if (_messageController.text.isNotEmpty) {
       //send the message
-      await _chatService.sendMessage(receiverID, _messageController.text);
+      await _chatService.sendMessage(widget.receiverID, _messageController.text);
 
       //clear text controller
       _messageController.clear();
@@ -38,7 +81,7 @@ class ChatPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
-        title: Text(receiverEmail),
+        title: Text(widget.receiverEmail),
         backgroundColor: Colors.transparent,
         foregroundColor: Colors.grey,
         elevation: 0,
@@ -61,7 +104,7 @@ class ChatPage extends StatelessWidget {
   Widget _buildMessageList() {
     String senderID = _authService.getCurrentUser()!.uid;
     return StreamBuilder(
-      stream: _chatService.getMessage(receiverID, senderID),
+      stream: _chatService.getMessage(widget.receiverID, senderID),
       builder: (context, snapshot) {
         //errors
         if (snapshot.hasError) {
