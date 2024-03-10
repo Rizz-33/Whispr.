@@ -25,29 +25,29 @@ class _ChatPageState extends State<ChatPage> {
   final AuthService _authService = AuthService();
 
   //for textfield focus
-  FocusNode focusNode = FocusNode();
+  FocusNode MyfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
 
     //add listener to focus node
-    focusNode.addListener(() {
-      if (focusNode.hasFocus) {
+    MyfocusNode.addListener(() {
+      if (MyfocusNode.hasFocus) {
         //cause a delay so that the keuboard has time to show up
 
         //amount of remaining space will be calculated
 
         //scroll down
 
-        Future.delayed(Duration(microseconds: 500), () => scrollDown(),);
+        Future.delayed(Duration(milliseconds: 500), () => scrollDown(),);
       }
     });
   }
 
   @override
   void dispose() {
-    focusNode.dispose();
+    MyfocusNode.dispose();
     _messageController.dispose();
     super.dispose();
   }
@@ -57,8 +57,8 @@ class _ChatPageState extends State<ChatPage> {
   void scrollDown() {
     _scrollController.animateTo(
       _scrollController.position.maxScrollExtent,
-      duration: Duration(seconds: 1),
-      curve: Curves.fastOutSlowIn,
+      duration: Duration(milliseconds: 500),
+      curve: Curves.fastEaseInToSlowEaseOut,
     );
   }
 
@@ -118,6 +118,7 @@ class _ChatPageState extends State<ChatPage> {
 
         //list view
         return ListView(
+          controller: _scrollController,
           children: snapshot.data!.docs.map((doc) => _buildMessageItem(doc)).toList(),
         );
       });
@@ -153,7 +154,8 @@ class _ChatPageState extends State<ChatPage> {
             child: CustomTextField(
               hintText: "Type a message",
               obscureText: false,
-              controller: _messageController
+              controller: _messageController,
+              focusNode: MyfocusNode,
             ),
           ),
       
