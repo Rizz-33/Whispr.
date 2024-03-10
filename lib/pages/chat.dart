@@ -4,6 +4,7 @@ import 'package:whispr/components/textfield.dart';
 import 'package:whispr/services/auth/auth_service.dart';
 import 'package:whispr/services/chat/chat_service.dart';
 
+
 class ChatPage extends StatelessWidget {
   final String receiverEmail;
   final String receiverID;
@@ -95,20 +96,29 @@ class ChatPage extends StatelessWidget {
 
   //build input
   Widget _buildUserInput() {
-    return Row(
-      children: [
-        //textfield
-        Expanded(
-          child: CustomTextField(
-            hintText: "Type a message",
-            obscureText: false,
-            controller: _messageController
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 30.0),
+      child: Row(
+        children: [
+          //textfield
+          Expanded(
+            child: CustomTextField(
+              hintText: "Type a message",
+              obscureText: false,
+              controller: _messageController
+            ),
           ),
-        ),
-
-        //send button
-        IconButton(onPressed: sendMessage, icon: Icon(Icons.arrow_upward),),
-      ],
+      
+          //send button
+          Container(
+            decoration: BoxDecoration(
+              color: Color.fromARGB(255, 0, 47, 167),
+              shape: BoxShape.circle,
+            ),
+            margin: EdgeInsets.only(right: 16),
+            child: IconButton(onPressed: sendMessage, icon: Icon(Icons.arrow_upward, color: Colors.white,),)),
+        ],
+      ),
     );
   }
 }
