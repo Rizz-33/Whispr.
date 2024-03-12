@@ -54,9 +54,7 @@ class RegisterPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-
               const SizedBox(height: 80,),
-              
               //logo
               Image.asset(
                 'lib/images/logo.png',
