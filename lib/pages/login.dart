@@ -4,7 +4,6 @@ import 'package:whispr/components/textfield.dart';
 import 'package:whispr/services/auth/auth_service.dart';
 
 class LoginPage extends StatelessWidget {
-  
   //email and password controllers
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
