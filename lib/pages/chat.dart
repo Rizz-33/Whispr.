@@ -36,9 +36,12 @@ class _ChatPageState extends State<ChatPage> {
       if (MyfocusNode.hasFocus) {
         //cause a delay so that the keuboard has time to show up
 
+
         //amount of remaining space will be calculated
 
+
         //scroll down
+        
 
         Future.delayed(Duration(milliseconds: 500), () => scrollDown(),);
       }
