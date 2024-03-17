@@ -6,21 +6,23 @@ import 'package:whispr/services/auth/auth_service.dart';
 import 'package:whispr/services/chat/chat_service.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage({super.key});
+  HomePage({Key? key});
 
-  //chat and auth services
+  // Chat and auth services
   final ChatService _chatService = ChatService();
   final AuthService _authService = AuthService();
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
-        title: Text('Home'),
+        title: Text(
+          'Home',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         backgroundColor: Colors.transparent,
-        foregroundColor: Colors.grey,
+        foregroundColor: Theme.of(context).colorScheme.primary,
         elevation: 0,
       ),
       drawer: CustomDrawer(),
@@ -28,51 +30,51 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  //build a list of users except for the current logged in user
+  // Build a list of users except for the current logged-in user
   Widget _buildUserList() {
     return StreamBuilder(
       stream: _chatService.getUserStream(),
-      builder: (context, snapshot){
-        //error
+      builder: (context, snapshot) {
+        // Error
         if (snapshot.hasError) {
-          return const Text('Error');
+          return Text('Error');
         }
 
-
-        //loading
+        // Loading
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Text("Loading...");
+          return Text("Loading...");
         }
 
-
-        //return list view
+        // Return list view
         return ListView(
-          children: snapshot.data!.map<Widget>((userData) => _buildUserListItem(userData, context)).toList(),
+          children: snapshot.data!.map<Widget>((userData) =>
+              _buildUserListItem(userData, context)).toList(),
         );
-        
       },
     );
   }
 
-
-  //build individual list tile for user
+  // Build individual list tile for user
   Widget _buildUserListItem(Map<String, dynamic> userData, BuildContext context) {
-    //display users except the current user
+    // Display users except the current user
     if (userData['email'] != _authService.getCurrentUser()!.email) {
-  return UserTile(
-    text: userData['email'],
-    onTap: () {
-      //tapped on a user -> go to chat
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => ChatPage(receiverEmail: userData['email'], receiverID: userData['uid'],),
-        )
+      return UserTile(
+        text: userData['email'],
+        isNewMessage: false,
+        onTap: () {
+          // Tapped on a user -> go to chat
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ChatPage(
+                  receiverEmail: userData['email'],
+                  receiverID: userData['uid'],
+                ),
+              ));
+        },
       );
-    },
-  );
-} else {
-  return Container();
-}
+    } else {
+      return Container();
+    }
   }
 }

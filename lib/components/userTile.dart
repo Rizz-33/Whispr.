@@ -2,8 +2,15 @@ import 'package:flutter/material.dart';
 
 class UserTile extends StatelessWidget {
   final String text;
+  final bool isNewMessage;
   final void Function()? onTap;
-  const UserTile({super.key, required this.text, this.onTap});
+
+  const UserTile({
+    Key? key,
+    required this.text,
+    required this.isNewMessage,
+    this.onTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,20 +18,24 @@ class UserTile extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.secondary,
+          color: isNewMessage ? Colors.blue : Theme.of(context).colorScheme.secondary,
           borderRadius: BorderRadius.circular(24),
         ),
         margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 25),
         padding: EdgeInsets.all(20),
         child: Row(
           children: [
-            //icon
+            // Icon
             Icon(Icons.person),
-
-            const SizedBox(width: 20,),
-
-            //username
-            Text(text),
+            const SizedBox(width: 20),
+            // Username
+            Text(
+              text,
+              style: TextStyle(
+                fontWeight: isNewMessage ? FontWeight.bold : FontWeight.normal,
+                color: isNewMessage ? Colors.white : null,
+              ),
+            ),
           ],
         ),
       ),
