@@ -8,7 +8,6 @@ class LoginPage extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  //tap to go to register page
   final void Function()? onTap;
 
   LoginPage({super.key, required this.onTap});
