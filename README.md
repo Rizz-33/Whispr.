@@ -1,5 +1,5 @@
 
-# whispr - The chatting app
+# whispr - The Chatting App
 
 A new Flutter project.
 
