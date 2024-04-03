@@ -4,32 +4,33 @@ import 'package:whispr/components/textfield.dart';
 import 'package:whispr/services/auth/auth_service.dart';
 
 class LoginPage extends StatelessWidget {
-  final String name; // Add name parameter
-
-  // Email and password controllers
+  //email and password controllers
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
   final void Function()? onTap;
 
-  LoginPage({Key? key, required this.name, required this.onTap}) : super(key: key); // Update constructor
+  LoginPage({super.key, required this.onTap});
 
-  // Login method
+  //login method
   void login(BuildContext context) async {
-    // Auth service
+    //auth service
     final authService = AuthService();
 
-    // Try log in
+    //try log in
     try {
-      await authService.signInWithEmailPassword(_emailController.text, _passwordController.text);
-    } catch (e) {
+      await authService.signInWithEmailPassword(_emailController.text, _passwordController.text,);
+    }
+
+    //catch any errors
+    catch (e) {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
           title: Text(e.toString()),
-        ),
-      );
+        ));
     }
+
   }
 
   @override
@@ -42,7 +43,7 @@ class LoginPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const SizedBox(height: 120,),
-              // Logo
+              //logo
               Image.asset(
                 'lib/images/logo.png',
                 width: 300,
@@ -50,15 +51,15 @@ class LoginPage extends StatelessWidget {
 
               const SizedBox(height: 40,),
 
-              // Welcome message with name
+              //welcome back message
               Text(
-                'Welcome back, $name. Thrilled to have you here again.',
+                'Welcome back, Thrilled to have you here again.',
                 style: TextStyle(fontSize: 16, color: Colors.grey[700]),
               ),
 
               const SizedBox(height: 20,),
 
-              // Email
+              //email
               CustomTextField(
                 hintText: 'Email',
                 obscureText: false,
@@ -67,7 +68,7 @@ class LoginPage extends StatelessWidget {
 
               const SizedBox(height: 16,),
 
-              // Password
+              //password
               CustomTextField(
                 hintText: 'Password',
                 obscureText: true,
@@ -76,7 +77,7 @@ class LoginPage extends StatelessWidget {
 
               const SizedBox(height: 40,),
 
-              // Login button
+              //login button
               Button(
                 text: 'Login',
                 onTap: () => login(context),
@@ -84,7 +85,7 @@ class LoginPage extends StatelessWidget {
 
               const SizedBox(height: 20,),
 
-              // Register now
+              //register now
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
